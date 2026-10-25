@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArturRios.AlgorithmPractice", "ArturRios.AlgorithmPractice\ArturRios.AlgorithmPractice.csproj", "{5B427231-0B4B-41C7-A4AF-F196719DDC19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArturRios.AlgorithmPractice.Tests", "ArturRios.AlgorithmPractice.Tests\ArturRios.AlgorithmPractice.Tests.csproj", "{A0819264-08B6-4FFB-AF52-A55C3C91F0DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B427231-0B4B-41C7-A4AF-F196719DDC19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B427231-0B4B-41C7-A4AF-F196719DDC19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B427231-0B4B-41C7-A4AF-F196719DDC19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B427231-0B4B-41C7-A4AF-F196719DDC19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0819264-08B6-4FFB-AF52-A55C3C91F0DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0819264-08B6-4FFB-AF52-A55C3C91F0DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0819264-08B6-4FFB-AF52-A55C3C91F0DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0819264-08B6-4FFB-AF52-A55C3C91F0DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
