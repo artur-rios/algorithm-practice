@@ -1,11 +1,5 @@
 # Algorithm Practice
 
-> [!NOTE]
-> This is the real, open-source code of algorithm-practice. Its home is Forgejo, at
-> https://git.techcraftsmen.net/artur-rios/algorithm-practice; the copy on GitHub is a read-only mirror, for viewing only, and
-> its issues and pull requests are not followed. If you want to contribute, email me at
-> arturdev@duck.com.
-
 Solutions to small algorithm exercises from [Codewars](https://www.codewars.com) and
 [LeetCode](https://leetcode.com), written in C# with a test for each one. .NET 10, xUnit.
 
@@ -73,6 +67,11 @@ ArturRios.AlgorithmPractice.sln
 3. Add a row to the table above.
 
 ---
+
+## Contributing
+
+The GitHub repository is a read-only mirror for the real, open-source code of algorithm-practice. Its home is Forgejo, at
+https://git.techcraftsmen.net/artur-rios/algorithm-practice. If you want to contribute, e-mail me at arturdev@duck.com.
 
 ## License
 
