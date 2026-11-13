@@ -7,9 +7,9 @@ public class MediumOfTwoSortedArraysTests
     {
         int[] nums1 = [1, 3];
         int[] nums2 = [3];
-        
+
         var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
-        
+
         Assert.Equal(3.0, result);
     }
 
@@ -18,9 +18,9 @@ public class MediumOfTwoSortedArraysTests
     {
         int[] nums1 = [1, 3];
         int[] nums2 = [2, 4];
-        
+
         var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
-        
+
         Assert.Equal(2.5, result);
     }
 
@@ -29,9 +29,9 @@ public class MediumOfTwoSortedArraysTests
     {
         int[] nums1 = [];
         int[] nums2 = [1];
-        
+
         var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
-        
+
         Assert.Equal(1.0, result);
     }
 
@@ -40,9 +40,9 @@ public class MediumOfTwoSortedArraysTests
     {
         int[] nums1 = [2];
         int[] nums2 = [];
-        
+
         var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
-        
+
         Assert.Equal(2.0, result);
     }
 
@@ -51,9 +51,9 @@ public class MediumOfTwoSortedArraysTests
     {
         int[] nums1 = [1, 2];
         int[] nums2 = [3, 4];
-        
+
         var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
-        
+
         Assert.Equal(2.5, result);
     }
 
@@ -62,9 +62,9 @@ public class MediumOfTwoSortedArraysTests
     {
         int[] nums1 = [-4, -1];
         int[] nums2 = [-3, -2];
-        
+
         var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
-        
+
         Assert.Equal(-2.5, result);
     }
 
@@ -73,9 +73,9 @@ public class MediumOfTwoSortedArraysTests
     {
         int[] nums1 = [1, 1];
         int[] nums2 = [1, 1];
-        
+
         var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
-        
+
         Assert.Equal(1.0, result);
     }
 
@@ -84,9 +84,9 @@ public class MediumOfTwoSortedArraysTests
     {
         int[] nums1 = [3, 1];
         int[] nums2 = [4, 2];
-        
+
         var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
-        
+
         Assert.Equal(2.5, result);
     }
 
@@ -95,9 +95,9 @@ public class MediumOfTwoSortedArraysTests
     {
         int[] nums1 = [-2, 0];
         int[] nums2 = [1, 3];
-        
+
         var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
-        
+
         Assert.Equal(0.5, result);
     }
 
@@ -106,9 +106,9 @@ public class MediumOfTwoSortedArraysTests
     {
         int[] nums1 = [5];
         int[] nums2 = [7];
-        
+
         var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
-        
+
         Assert.Equal(6.0, result);
     }
 }

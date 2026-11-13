@@ -9,21 +9,21 @@ public static class MediumOfTwoSortedArrays
     {
         var mergedArrays = nums1.Concat(nums2).ToArray();
         mergedArrays.Sort();
-        
+
         var length = mergedArrays.Length;
 
         if (length == 1)
         {
             return mergedArrays[0];
         }
-        
+
         var middle = (int)Math.Floor((double)mergedArrays.Length / 2);
-        
+
         if (length % 2 == 0)
         {
             return (mergedArrays[middle - 1] + mergedArrays[middle]) / 2.0;
         }
-        
+
         return mergedArrays[middle];
     }
 }

@@ -8,7 +8,7 @@ public static class MultiplesOfThreeOrFive
     public static int Solution(int value)
     {
         var sum = 0;
-        
+
         for (var i = 1; i < value; i++)
         {
             if (IsMultipleOfThreeOrFive(i))
@@ -16,7 +16,7 @@ public static class MultiplesOfThreeOrFive
                 sum += i;
             }
         }
-        
+
         return sum;
     }
 
