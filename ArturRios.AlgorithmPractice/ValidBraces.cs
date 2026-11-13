@@ -9,20 +9,20 @@ public static class ValidBraces
     {
         var valid = true;
         char lastChar = default;
-      
-        for(var i = 0;  i < braces.Length; i++) 
+
+        for (var i = 0; i < braces.Length; i++)
         {
             var c = braces[i];
-            
-            if (i == 0) 
+
+            if (i == 0)
             {
-                if (c is ')' or '}' or ']') 
+                if (c is ')' or '}' or ']')
                 {
                     valid = false;
-                    
+
                     break;
                 }
-                
+
                 lastChar = c;
             }
 
@@ -31,23 +31,23 @@ public static class ValidBraces
                 if (c is '(' or '[' or '{')
                 {
                     valid = false;
-                    
+
                     break;
                 }
             }
 
-            if (lastChar is '(' && c is ']' or '}' 
-                || lastChar is '{' && c is ')' or ']' 
+            if (lastChar is '(' && c is ']' or '}'
+                || lastChar is '{' && c is ')' or ']'
                 || lastChar is '[' && c is ')' or '}')
             {
                 valid = false;
-                
+
                 break;
             }
 
             lastChar = c;
         }
-      
+
         return valid;
     }
 }

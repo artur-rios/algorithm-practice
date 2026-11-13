@@ -12,7 +12,7 @@ public static class StringEndsWith
         {
             return false;
         }
-        
+
         return str.Substring(str.Length - ending.Length) == ending;
     }
 }
