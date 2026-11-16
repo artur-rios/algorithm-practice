@@ -5,17 +5,56 @@ public class ValidBracesTests
     [Theory]
     [InlineData("(){}[]")]
     [InlineData("([{}])")]
-    public void Given_ValidBraces_When_CallingMethod_Then_ReturnTrue(string braces)
+    [InlineData("()")]
+    [InlineData("{}({})[]")]
+    [InlineData("({})[({})]")]
+    [InlineData("(({{[[]]}}))")]
+    public void GivenBracesThatAllMatch_WhenChecked_ThenTheyAreValid(string braces)
     {
-        Assert.True(ValidBraces.Solution(braces));
+        // When
+        var valid = ValidBraces.Solution(braces);
+
+        // Then
+        Assert.True(valid);
     }
 
     [Theory]
     [InlineData("(}")]
     [InlineData("[(])")]
     [InlineData("[({})](]")]
-    public void Given_InvalidBraces_When_CallingMethod_Then_ReturnFalse(string braces)
+    [InlineData("([)]")]
+    public void GivenABraceClosedByTheWrongKind_WhenChecked_ThenTheyAreInvalid(string braces)
     {
-        Assert.False(ValidBraces.Solution(braces));
+        // When
+        var valid = ValidBraces.Solution(braces);
+
+        // Then
+        Assert.False(valid);
+    }
+
+    [Theory]
+    [InlineData("(((({{")]
+    [InlineData("())({}}{()][][")]
+    [InlineData("[")]
+    public void GivenBracesThatEndOpen_WhenChecked_ThenTheyAreInvalid(string braces)
+    {
+        // When
+        var valid = ValidBraces.Solution(braces);
+
+        // Then
+        Assert.False(valid);
+    }
+
+    [Theory]
+    [InlineData(")(")]
+    [InlineData("}")]
+    [InlineData("]()")]
+    public void GivenBracesThatStartClosed_WhenChecked_ThenTheyAreInvalid(string braces)
+    {
+        // When
+        var valid = ValidBraces.Solution(braces);
+
+        // Then
+        Assert.False(valid);
     }
 }
