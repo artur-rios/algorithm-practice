@@ -2,113 +2,100 @@
 
 public class MediumOfTwoSortedArraysTests
 {
-    [Fact]
-    public void GivenTwoSortedArraysWithOddTotalLength_WhenSolutionCalled_ThenReturnMiddleElement()
+    [Theory]
+    [InlineData(new[] { 1, 3 }, new[] { 2 }, 2.0)]
+    [InlineData(new[] { 1, 2 }, new[] { 3, 4 }, 2.5)]
+    public void GivenTheProblemsExamples_WhenFindingTheMedian_ThenItIsTheKnownAnswer(int[] nums1, int[] nums2, double expected)
     {
-        int[] nums1 = [1, 3];
-        int[] nums2 = [3];
+        // When
+        var median = MediumOfTwoSortedArrays.Solution(nums1, nums2);
 
-        var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
+        // Then
+        Assert.Equal(expected, median);
+    }
 
-        Assert.Equal(3.0, result);
+    [Theory]
+    [InlineData(new[] { 1, 3 }, new[] { 3 }, 3.0)]
+    [InlineData(new[] { 1, 2, 3, 4, 5 }, new[] { 6, 7 }, 4.0)]
+    [InlineData(new[] { 1 }, new[] { 2, 3, 4, 5, 6, 7, 8, 9 }, 5.0)]
+    public void GivenAnOddTotalLength_WhenFindingTheMedian_ThenItIsTheMiddleElement(int[] nums1, int[] nums2, double expected)
+    {
+        // When
+        var median = MediumOfTwoSortedArrays.Solution(nums1, nums2);
+
+        // Then
+        Assert.Equal(expected, median);
+    }
+
+    [Theory]
+    [InlineData(new[] { 1, 3 }, new[] { 2, 4 }, 2.5)]
+    [InlineData(new[] { 5 }, new[] { 7 }, 6.0)]
+    [InlineData(new[] { 1, 2, 3, 4, 5 }, new[] { 6 }, 3.5)]
+    [InlineData(new[] { 1 }, new[] { 2, 3, 4, 5, 6, 7, 8 }, 4.5)]
+    public void GivenAnEvenTotalLength_WhenFindingTheMedian_ThenItIsTheMeanOfTheTwoMiddleElements(
+        int[] nums1, int[] nums2, double expected)
+    {
+        // When
+        var median = MediumOfTwoSortedArrays.Solution(nums1, nums2);
+
+        // Then
+        Assert.Equal(expected, median);
+    }
+
+    [Theory]
+    [InlineData(new int[0], new[] { 1 }, 1.0)]
+    [InlineData(new[] { 2 }, new int[0], 2.0)]
+    [InlineData(new int[0], new[] { 2, 3 }, 2.5)]
+    [InlineData(new[] { 1, 2, 3 }, new int[0], 2.0)]
+    public void GivenOneEmptyArray_WhenFindingTheMedian_ThenItIsTheMedianOfTheOther(int[] nums1, int[] nums2, double expected)
+    {
+        // When
+        var median = MediumOfTwoSortedArrays.Solution(nums1, nums2);
+
+        // Then
+        Assert.Equal(expected, median);
+    }
+
+    [Theory]
+    [InlineData(new[] { -4, -1 }, new[] { -3, -2 }, -2.5)]
+    [InlineData(new[] { -2, 0 }, new[] { 1, 3 }, 0.5)]
+    [InlineData(new[] { 1, 1 }, new[] { 1, 1 }, 1.0)]
+    [InlineData(new[] { 3, 1 }, new[] { 4, 2 }, 2.5)]
+    public void GivenNegativesDuplicatesOrUnsortedInput_WhenFindingTheMedian_ThenItIsStillTheMedian(
+        int[] nums1, int[] nums2, double expected)
+    {
+        // When
+        var median = MediumOfTwoSortedArrays.Solution(nums1, nums2);
+
+        // Then
+        Assert.Equal(expected, median);
+    }
+
+    [Theory]
+    [InlineData(new[] { 1000000 }, new[] { 1000000 }, 1000000.0)]
+    [InlineData(new[] { -1000000 }, new[] { 1000000 }, 0.0)]
+    [InlineData(new[] { -1000000, -999999 }, new[] { -1000000 }, -1000000.0)]
+    public void GivenValuesAtTheProblemsBounds_WhenFindingTheMedian_ThenItIsExact(int[] nums1, int[] nums2, double expected)
+    {
+        // When
+        var median = MediumOfTwoSortedArrays.Solution(nums1, nums2);
+
+        // Then
+        Assert.Equal(expected, median);
     }
 
     [Fact]
-    public void GivenTwoSortedArraysWithEvenTotalLength_WhenSolutionCalled_ThenReturnAverageOfTwoMiddleElements()
+    public void GivenTwoArrays_WhenFindingTheMedian_ThenNeitherIsChanged()
     {
-        int[] nums1 = [1, 3];
-        int[] nums2 = [2, 4];
-
-        var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
-
-        Assert.Equal(2.5, result);
-    }
-
-    [Fact]
-    public void GivenEmptyFirstArrayAndNonEmptySecondArray_WhenSolutionCalled_ThenReturnMedianOfSecondArray()
-    {
-        int[] nums1 = [];
-        int[] nums2 = [1];
-
-        var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
-
-        Assert.Equal(1.0, result);
-    }
-
-    [Fact]
-    public void GivenNonEmptyFirstArrayAndEmptySecondArray_WhenSolutionCalled_ThenReturnMedianOfFirstArray()
-    {
-        int[] nums1 = [2];
-        int[] nums2 = [];
-
-        var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
-
-        Assert.Equal(2.0, result);
-    }
-
-    [Fact]
-    public void GivenTwoLargeEvenLengthArrays_WhenSolutionCalled_ThenReturnCorrectMedian()
-    {
-        int[] nums1 = [1, 2];
-        int[] nums2 = [3, 4];
-
-        var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
-
-        Assert.Equal(2.5, result);
-    }
-
-    [Fact]
-    public void GivenArraysWithNegativeNumbers_WhenSolutionCalled_ThenReturnCorrectMedian()
-    {
-        int[] nums1 = [-4, -1];
-        int[] nums2 = [-3, -2];
-
-        var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
-
-        Assert.Equal(-2.5, result);
-    }
-
-    [Fact]
-    public void GivenArraysWithDuplicates_WhenSolutionCalled_ThenReturnCorrectMedian()
-    {
-        int[] nums1 = [1, 1];
-        int[] nums2 = [1, 1];
-
-        var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
-
-        Assert.Equal(1.0, result);
-    }
-
-    [Fact]
-    public void GivenUnsortedCombinedArrays_WhenSolutionCalled_ThenReturnCorrectMedian()
-    {
+        // Given
         int[] nums1 = [3, 1];
         int[] nums2 = [4, 2];
 
-        var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
+        // When
+        MediumOfTwoSortedArrays.Solution(nums1, nums2);
 
-        Assert.Equal(2.5, result);
-    }
-
-    [Fact]
-    public void GivenArraysWithMixedPositiveAndNegative_WhenSolutionCalled_ThenReturnCorrectMedian()
-    {
-        int[] nums1 = [-2, 0];
-        int[] nums2 = [1, 3];
-
-        var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
-
-        Assert.Equal(0.5, result);
-    }
-
-    [Fact]
-    public void GivenSingleElementInEachArray_WhenSolutionCalled_ThenReturnAverageOfBothElements()
-    {
-        int[] nums1 = [5];
-        int[] nums2 = [7];
-
-        var result = MediumOfTwoSortedArrays.Solution(nums1, nums2);
-
-        Assert.Equal(6.0, result);
+        // Then
+        Assert.Equal([3, 1], nums1);
+        Assert.Equal([4, 2], nums2);
     }
 }

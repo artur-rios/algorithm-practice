@@ -13,9 +13,14 @@ public class StringEndsWithTests
     [InlineData("abcabc", "bc")]
     [InlineData("fails", "ails")]
     [InlineData("!@#$%^&*() :-)", ":-)")]
-    public void Given_StringThatEndsWithEnding_When_CallingMethod_Then_ReturnTrue(string str, string ending)
+    [InlineData("", "")]
+    public void GivenAStringThatEndsWithTheEnding_WhenChecked_ThenItIsTrue(string str, string ending)
     {
-        Assert.True(StringEndsWith.Solution(str, ending));
+        // When
+        var endsWith = StringEndsWith.Solution(str, ending);
+
+        // Then
+        Assert.True(endsWith);
     }
 
     [Theory]
@@ -28,8 +33,26 @@ public class StringEndsWithTests
     [InlineData("this", "fails")]
     [InlineData(":-)", ":-(")]
     [InlineData("abc\n", "abc")]
-    public void Given_StringThatDoesNotEndWithEnding_When_CallingMethod_Then_ReturnFalse(string str, string ending)
+    [InlineData("", "a")]
+    [InlineData("abc", "abc ")]
+    public void GivenAStringThatDoesNotEndWithTheEnding_WhenChecked_ThenItIsFalse(string str, string ending)
     {
-        Assert.False(StringEndsWith.Solution(str, ending));
+        // When
+        var endsWith = StringEndsWith.Solution(str, ending);
+
+        // Then
+        Assert.False(endsWith);
+    }
+
+    [Theory]
+    [InlineData("abc", "C")]
+    [InlineData("ABC", "bc")]
+    public void GivenAnEndingInAnotherCase_WhenChecked_ThenItIsFalse(string str, string ending)
+    {
+        // When
+        var endsWith = StringEndsWith.Solution(str, ending);
+
+        // Then
+        Assert.False(endsWith);
     }
 }
