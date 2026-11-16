@@ -21,7 +21,7 @@ public static class MediumOfTwoSortedArrays
 
         if (length % 2 == 0)
         {
-            return (mergedArrays[middle - 1] + mergedArrays[middle]) / 2.0;
+            return ((double)mergedArrays[middle - 1] + mergedArrays[middle]) / 2.0;
         }
 
         return mergedArrays[middle];

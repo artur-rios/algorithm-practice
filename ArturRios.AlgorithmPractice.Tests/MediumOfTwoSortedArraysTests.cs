@@ -84,6 +84,20 @@ public class MediumOfTwoSortedArraysTests
         Assert.Equal(expected, median);
     }
 
+    [Theory]
+    [InlineData(new[] { int.MaxValue }, new[] { int.MaxValue }, 2147483647.0)]
+    [InlineData(new[] { int.MinValue }, new[] { int.MinValue }, -2147483648.0)]
+    [InlineData(new[] { int.MaxValue - 1 }, new[] { int.MaxValue }, 2147483646.5)]
+    public void GivenMiddleElementsWhoseSumOverflowsAnInt_WhenFindingTheMedian_ThenItIsStillTheirMean(
+        int[] nums1, int[] nums2, double expected)
+    {
+        // When
+        var median = MediumOfTwoSortedArrays.Solution(nums1, nums2);
+
+        // Then
+        Assert.Equal(expected, median);
+    }
+
     [Fact]
     public void GivenTwoArrays_WhenFindingTheMedian_ThenNeitherIsChanged()
     {

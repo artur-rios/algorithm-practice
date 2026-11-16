@@ -46,6 +46,21 @@ public class ValidBracesTests
     }
 
     [Theory]
+    [InlineData("(()")]
+    [InlineData("())")]
+    [InlineData("{[]")]
+    [InlineData("[]]")]
+    [InlineData("(){}[]]")]
+    public void GivenMoreOpenersOrClosersThanTheyMatch_WhenChecked_ThenTheyAreInvalid(string braces)
+    {
+        // When
+        var valid = ValidBraces.Solution(braces);
+
+        // Then
+        Assert.False(valid);
+    }
+
+    [Theory]
     [InlineData(")(")]
     [InlineData("}")]
     [InlineData("]()")]
