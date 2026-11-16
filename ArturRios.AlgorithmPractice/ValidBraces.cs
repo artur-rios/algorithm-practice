@@ -7,47 +7,36 @@ public static class ValidBraces
      */
     public static bool Solution(string braces)
     {
-        var valid = true;
-        char lastChar = default;
+        var open = new Stack<char>();
 
-        for (var i = 0; i < braces.Length; i++)
+        foreach (var c in braces)
         {
-            var c = braces[i];
-
-            if (i == 0)
+            if (c is '(' or '[' or '{')
             {
-                if (c is ')' or '}' or ']')
-                {
-                    valid = false;
+                open.Push(c);
 
-                    break;
-                }
-
-                lastChar = c;
+                continue;
             }
 
-            if (i == braces.Length - 1)
+            var opener = c switch
             {
-                if (c is '(' or '[' or '{')
-                {
-                    valid = false;
+                ')' => '(',
+                ']' => '[',
+                '}' => '{',
+                _ => default(char?)
+            };
 
-                    break;
-                }
+            if (opener is null)
+            {
+                continue;
             }
 
-            if (lastChar is '(' && c is ']' or '}'
-                || lastChar is '{' && c is ')' or ']'
-                || lastChar is '[' && c is ')' or '}')
+            if (open.Count == 0 || open.Pop() != opener)
             {
-                valid = false;
-
-                break;
+                return false;
             }
-
-            lastChar = c;
         }
 
-        return valid;
+        return open.Count == 0;
     }
 }
